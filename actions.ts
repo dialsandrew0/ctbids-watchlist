@@ -1,11 +1,9 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
-import { createServiceRoleClient } from '@/lib/supabase/server';
 import { scrapeItemDetail } from '@/lib/scraper/ctbids';
 import {
   UpdateWatchlistEntrySchema,
-  CreateWatchlistEntrySchema,
   UpdateNotificationSettingsSchema,
   ManualIngestSchema,
 } from '@/lib/validators/schemas';
