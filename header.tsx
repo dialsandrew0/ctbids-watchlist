@@ -1,6 +1,6 @@
 'use client';
 
-import { createBrowserClient } from '@supabase/auth-helpers-nextjs';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import { env } from '@/lib/env';
 import { toast } from 'sonner';
@@ -17,7 +17,7 @@ export function Header({ user }: HeaderProps) {
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
 
-  const supabase = createBrowserClient(
+  const supabase = createSupabaseClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
     env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );

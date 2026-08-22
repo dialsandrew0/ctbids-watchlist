@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createBrowserClient } from '@supabase/auth-helpers-nextjs';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { env } from '@/lib/env';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -26,7 +26,7 @@ export function WatchlistTable({ userId }: WatchlistTableProps) {
   const [loading, setLoading] = useState(true);
   const [selectedEntry, setSelectedEntry] = useState<WatchlistEntry | null>(null);
 
-  const supabase = createBrowserClient(
+  const supabase = createSupabaseClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
     env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
